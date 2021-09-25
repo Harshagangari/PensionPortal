@@ -1,0 +1,20 @@
+﻿@model IEnumerable<WebAppWithAzureNoDB.Models.DialougesAndBgm>
+
+<table class="table">
+    <thead>
+    <td>Character</td>
+    <td>Dialouge or Bgm</td>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.character</td>
+                <td>@i.dialouge</td>
+            </tr>
+           
+        }
+    </tbody>
+
+
+</table>

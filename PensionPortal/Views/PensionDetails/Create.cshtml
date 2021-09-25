@@ -1,0 +1,59 @@
+﻿@model PensionPortal.Entites.PensionDetails
+@using PensionPortal.Entites
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Request Your Pension</h4>
+<hr />
+<div class="container justify-content-center">
+    <div class="row">
+        <div class="col-md-5 col-lg-5">
+            <form asp-action="Display" onsubmit="PensionDetails/Display" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="AadharNo" class="control-label">Aadhar Number</label>
+                    <input asp-for="AadharNo" class="form-control" required="true"/>
+                    <span asp-validation-for="AadharNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Name</label>
+                    <input asp-for="Name" class="form-control" required="true" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOfBirth" class="control-label">Date Of Birth</label>
+                    <input asp-for="DateOfBirth" class="form-control" asp-format="{0:yyyy-MM-dd}" type="date" data-val="true" required="true" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PAN" class="control-label">PAN</label>
+                    <input asp-for="PAN" class="form-control" required="true"/>
+                    <span asp-validation-for="PAN" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="pensionType" class="control-label">Pension Type</label>
+                    <select asp-for="pensionType" class="form-control" asp-items="Html.GetEnumSelectList<PensionDetails.PensionType>() "required="true"></select>
+                    <span asp-validation-for="pensionType" class="text-danger l"></span>
+
+
+                </div>
+                <div class="form-group justify-content-center">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-2 col-md-2"></div>
+        <div class=" col-md-5 col-lg-5 bg-light">
+            <h6 style="text-align:center">Your Pension Amount will be displayed here</h6>
+        </div>
+    </div>
+   
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WebAppInAzureWithDatabase.Models.MemeDialouges> 
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    <thead>
+        <td>Character</td>
+        <td>Dialouge</td>
+    </thead>
+    <tbody>
+        @foreach(var i in Model)
+            {
+        <tr>
+            <td>@i.character</td>
+            <td>@i.dialouge</td>
+        </tr>
+            
+            }
+    </tbody>
+</table>
+
